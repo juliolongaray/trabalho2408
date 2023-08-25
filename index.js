@@ -7,13 +7,14 @@
  */
 function invert(people){
 
-    // TODO
-    // 1) Peça ao usuário para digitar vários nomes. Exiba na tela
-    // todos os nomes digitados, porém de maneira invertida (do último para o primeiro).
-    // Uma dica, você pode utilizar a função prompt para permitir que o usuário digite os
-    // nomes dos usuários.
-
-    return [];
+    var  v = [];
+    var j=0;    
+    for (var i=people.length-1; i>=0; i--){
+        v[j]=people[i]; 
+        j++;      
+    }
+    
+    return v;
 }
 
 /**
@@ -23,13 +24,11 @@ function invert(people){
  * @returns Uma média a partir do array de notas
  */
 function mean(grades){
-
-    // TODO
-    // 2) Faça um programa que leia o nome e as três notas de uma disciplina de um aluno e ao final escreva
-    // o nome do aluno, sua média e se ele foi aprovado, sabendo-se que a média para aprovação é igual
-    // ou superior a 7.
-
-    return 0;
+    var media;
+    if(grades.length>1){
+    media=(grades[0]+grades[1]+grades[2])/3;
+    }
+    return media;
 }
 
 /**
@@ -40,12 +39,14 @@ function mean(grades){
  */
 function isApproved(mean){
 
-    // TODO
-    // 2.1) Faça um programa que leia o nome e as três notas de uma disciplina de um aluno e ao final escreva
-    // o nome do aluno, sua média e se ele foi aprovado, sabendo-se que a média para aprovação é igual
-    // ou superior a 7.
+var situacao;
+if(mean >=7){
+    situacao="aprovado";
+}else{
+    situacao="reprovado";
+}    
 
-    return "";
+    return situacao;
 }
 
 /**
@@ -56,13 +57,60 @@ function isApproved(mean){
  */
 function wide(strDate){
 
-    // TODO
-    // 3) Faça um script que receba uma data no formato “dd/mm/aaaa” e escreva a data por extenso,
-    // por exemplo, de "03/03/2022" para "03 de março de 2022". Dica: use a função
-    // “split” de uma string que quebra a string em pedaços dado um separador como argumento da função.
-    // Nesse caso, o separador é a barra (/) da data.
-
-    return "";
+    var dia, mes, ano;
+    dia = strDate.slice(0,2);
+    mes = strDate.slice(3,5);
+    ano = strDate.slice(6,10);
+    
+    if(strDate.slice(2,3)!="/"){
+        data="";
+    }else{
+    switch(mes){
+    
+        case "01":
+            data = dia+" de janeiro de "+ano;
+            break;
+        case "02":
+            data = dia+" de fevereiro de "+ano;
+            break;        
+        case "03":
+            data = dia+ " de março de "+ ano;
+            break;
+        case "04":
+            data = dia+" de abril de "+ano;
+            break; 
+        case "05":
+            data = dia+" de maio de "+ano;
+            break;
+        case "06":
+            data = dia+" de Junho de "+ano;
+            break;
+        case "07":
+            data = dia+" de julho de "+ano;
+            break;
+        case "08":
+            data = dia+" de agosto de "+ano;
+            break;case "01":
+        case "09":
+            data = dia+" de setembro de "+ano;
+            break;
+        case "10":
+            data = dia+" de outubro de "+ano;
+            break;
+        case "11":
+            data = dia+" de novembro de "+ano;
+            break; 
+        case "12":
+            data = dia+" de dezembro de "+ano;
+            break;
+        case "":
+            data = "";
+            break; 
+ 
+                 
+    }    }
+    
+    return data;
 }
 
 // Trecho utilizado pelos testes
